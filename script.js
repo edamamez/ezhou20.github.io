@@ -117,6 +117,6 @@ function drawFeaturePoints(img, featurePoints) {
 }
 
 //Mirrors the user
-affdex_elements.style.cssText = "-moz-transform: scale(-1, 1); \
+/*affdex_elements.style.cssText = "-moz-transform: scale(-1, 1); \
 -webkit-transform: scale(-1, 1); -o-transform: scale(-1, 1); \
-transform: scale(-1, 1); filter: FlipH;";
+transform: scale(-1, 1); filter: FlipH;";*/
