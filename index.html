@@ -22,17 +22,233 @@
 
   <!-- Use Custom CSS and Javascript files-->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Sidebars that sticks out (tab)-->
+  <style>
+  body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidetab_left {
+    height: 100%;
+    width: 50px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .sidetab_left a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+
+  .sidetab_left a:hover {
+    color: #f1f1f1;
+  }
+
+  .main {
+    margin-left: 50px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidetab_left {padding-top: 15px;}
+    .sidetab_left a {font-size: 18px;}
+  }
+</style>
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidetab_right {
+  height: 100%;
+  width: 50px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidetab_right a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidetab_right a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 50px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidetab_right {padding-top: 15px;}
+  .sidetab_right a {font-size: 18px;}
+}
+</style>
+
+<!-- Sidebars -->
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav_left {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav_left a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav_left a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 350px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav_left {padding-top: 15px;}
+  .sidenav_left a {font-size: 18px;}
+}
+</style>
+
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav_right {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 350;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav_right a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav_right a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 350px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav_right {padding-top: 15px;}
+  .sidenav_right a {font-size: 18px;}
+}
+</style>
+
+<style>
+div.a {
+  text-align: center;
+}
+
+div.b {
+  text-align: left;
+}
+
+div.c {
+  text-align: right;
+}
+</style>
 </head>
 
 <body>
   <!-- Body Section -->
-  <!-- Sidebars -->
-  <div class="w3-sidebar w3-bar-block w3-card w3-animate-left"  id="leftMenu">
-    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+
+  <!-- Sidebars and tabs -->
+  <div class="sidetab_left">
+    <a>H</a>
+    <a>o</a>
+    <a>w</a>
+    <a>-</a>
+    <a>T</a>
+    <a>o</a>
   </div>
 
-  <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
+  <div class="sidetab_right">
+    <a>P</a>
+    <a>l</a>
+    <a>a</a>
+    <a>y</a>
+    <a>l</a>
+    <a>i</a>
+    <a>s</a>
+    <a>t</a>
+  </div>
+
+  <div class="c sidenav_left w3-sidebar w3-bar-block w3-card w3-animate-left" id="leftMenu">
+    <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <a>H</a>
+    <a>o</a>
+    <a>w</a>
+    <a>-</a>
+    <a>T</a>
+    <a>o</a>
+  </div>
+
+
+  <div class="b sidenav_right w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
     <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <a>P</a>
+    <a>l</a>
+    <a>a</a>
+    <a>y</a>
+    <a>l</a>
+    <a>i</a>
+    <a>s</a>
+    <a>t</a>
   </div>
 
   <!-- Page Content -->
@@ -70,12 +286,6 @@
   </center>
 </p>
 </div>
-
-</div>
-<div class="col-sm-2 sidenav">
-  <div class="well">
-    <p>Stuff here</p>
-  </div>
 </div>
 </div>
 </div>
