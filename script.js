@@ -28,15 +28,12 @@ function log(node_name, msg) {
 //function executes when Start button is pushed.
 function onStart() {
   if (detector && !detector.isRunning) {
-    $("#logs").html("");
     detector.start();
   }
-  log('#logs', "Clicked the start button");
 }
 
 //function executes when the Stop button is pushed.
 function onStop() {
-  log('#logs', "Clicked the stop button");
   if (detector && detector.isRunning) {
     detector.removeEventListener();
     detector.stop();
@@ -45,11 +42,10 @@ function onStop() {
 
 //function executes when the Reset button is pushed.
 function onReset() {
-  log('#logs', "Clicked the reset button");
+  //log('#logs', "Clicked the reset button");
   if (detector && detector.isRunning) {
     detector.reset();
-
-    $('#results').html("");
+    //$('#results').html("");
   }
 };
 
