@@ -1,11 +1,11 @@
 // SDK Needs to create video and canvas nodes in the DOM in order to function
 // Here we are adding those nodes a predefined div.
 var divRoot = $("#affdex_elements")[0];
-var width = 680;
-var height = 480;
+var width = 0;
+var height = 0;
 var faceMode = affdex.FaceDetectorMode.LARGE_FACES;
 //Construct a CameraDetector and specify the image width / height and face detector mode.
-var detector = new affdex.CameraDetector(divRoot, width, height, faceMode);
+var detector = new affdex.CameraDetector(divRoot, 0, 0, faceMode);
 
 //Enable detection of all Expressions, Emotions and Emojis classifiers.
 detector.detectAllEmotions();
@@ -15,10 +15,10 @@ detector.detectAllAppearance();
 
 //Add a callback to notify when the detector is initialized and ready for runing.
 detector.addEventListener("onInitializeSuccess", function() {
-  log('#logs', "The detector reports initialized");
+  /*log('#logs', "The detector reports initialized");
   //Display canvas instead of video feed because we want to draw the feature points on it
   $("#face_video_canvas").css("display", "block");
-  $("#face_video").css("display", "none");
+  $("#face_video").css("display", "none");*/
 });
 
 function log(node_name, msg) {
@@ -28,7 +28,10 @@ function log(node_name, msg) {
 //function executes when Start button is pushed.
 function onStart() {
   if (detector && !detector.isRunning) {
+    detector.display = "none";
+    //detector.addEventListener();
     detector.start();
+    detector.display = "none";
   }
 }
 
