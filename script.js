@@ -82,7 +82,8 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
       joy = faces[0].emotions.joy;
       console.log(joyduration);
       console.log(mehduration);
-      $('#joy-bar').attr('aria-valuenow', joy).css('width', joy+'%');
+      $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
+      $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
     log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
       function(key, val) {
         return val.toFixed ? Number(val.toFixed(0)) : val;
