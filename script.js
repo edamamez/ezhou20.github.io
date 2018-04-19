@@ -113,6 +113,7 @@ function drawFeaturePoints(img, featurePoints) {
 var iFrequency = 5000; // expressed in miliseconds
 var myInterval = 0;
 var joyduration = 0, mehduration = 0;
+var counter = 0;
 
 var playlists = ["https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
 "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500852178&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
@@ -146,7 +147,7 @@ function changePlaylist() {
   if (mehduration >= 3) {
     console.log('meh');
 
-    $("#sc").attr("src", playlists[getRandomInt(0,9)]);
+    $("#sc").attr("src", playlists[counter%9]);
     widget1.play();
     joyduration = 0;
     mehduration = 0;
@@ -159,6 +160,7 @@ function changePlaylist() {
     mehduration = 0;
     $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
+  counter++:
 }
 var iframeElement = document.querySelector('iframe');
 var widget1 = SC.Widget(iframeElement);
