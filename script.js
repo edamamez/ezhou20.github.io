@@ -82,8 +82,6 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
       joy = faces[0].emotions.joy;
       console.log(joyduration);
       console.log(mehduration);
-      $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
-      $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
     log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
       function(key, val) {
         return val.toFixed ? Number(val.toFixed(0)) : val;
@@ -135,10 +133,14 @@ function changePlaylist() {
   if (joy < 40) {
     mehduration++;
     if (joyduration > 0) joyduration = 0;
+    $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
   }
   if (joy > 40) {
     joyduration++;
     if (mehduration > 0) mehduration = 0;
+    $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
   }
   if (mehduration >= 3) {
     console.log('meh');
