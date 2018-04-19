@@ -146,13 +146,12 @@ function changePlaylist() {
   }
   if (mehduration >= 3) {
     console.log('meh');
-
     $("#sc").attr("src", playlists[counter%9]);
+    counter++;
     widget1.play();
     joyduration = 0;
     mehduration = 0;
     $('#meh-bar').attr('aria-valuenow', 100).css('width', 100+'%');
-    counter++;
   }
   if (joyduration >= 3) {
     console.log('user is happy');
@@ -160,7 +159,6 @@ function changePlaylist() {
     joyduration = 0;
     mehduration = 0;
     $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
-    counter++;
   }
 }
 var iframeElement = document.querySelector('iframe');
