@@ -21,7 +21,7 @@ detector.addEventListener("onInitializeSuccess", function() {
 });
 
 function log(node_name, msg) {
-  $(node_name).append("<span>" + msg + "</span><br />")
+  $(node_name).append("<span>" + msg + "</span><br/>")
 }
 
 //function executes when Start button is pushed.
@@ -82,13 +82,13 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
       joy = faces[0].emotions.joy;
       console.log(joyduration);
       console.log(mehduration);
-    log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
-      function(key, val) {
-        return val.toFixed ? Number(val.toFixed(0)) : val;
-      }));
+    // log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
+    //   function(key, val) {
+    //     return val.toFixed ? Number(val.toFixed(0)) : val;
+    //   }));
 
     // Return an emoji of face
-    log('#results', "Emoji: " + faces[0].emojis.dominantEmoji);
+    // log('#results', "Emoji: " + faces[0].emojis.dominantEmoji);
   }
 });
 
@@ -110,13 +110,14 @@ function drawFeaturePoints(img, featurePoints) {
   }
 }
 
-var iFrequency = 5000; // expressed in miliseconds
+var iFrequency = 100; // expressed in miliseconds
 var myInterval = 0;
 var joyduration = 0, mehduration = 0;
+var counter = 1;
 
-var playlists = ["https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+var playlists = ["https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
 "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500852178&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
 "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500848224&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
 "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500847177&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
 "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500844384&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
@@ -131,28 +132,28 @@ function getRandomInt(min, max) {
 var i;
 
 function changePlaylist() {
-  if (joy < 40) {
+  if (joy < 30) {
     mehduration++;
     if (joyduration > 0) joyduration = 0;
-    $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
-    $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
+    $('#joy-bar').attr('aria-valuenow', joyduration*2).css('width', (joyduration*2)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration).css('width', (mehduration)+'%');
   }
-  if (joy > 40) {
+  if (joy > 30) {
     joyduration++;
     if (mehduration > 0) mehduration = 0;
-    $('#joy-bar').attr('aria-valuenow', joyduration*33).css('width', (joyduration*33)+'%');
-    $('#meh-bar').attr('aria-valuenow', mehduration*33).css('width', (mehduration*33)+'%');
+    $('#joy-bar').attr('aria-valuenow', joyduration*2).css('width', (joyduration*2)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration).css('width', (mehduration)+'%');
   }
-  if (mehduration >= 3) {
+  if (mehduration >= 110) {
     console.log('meh');
-
-    $("#sc").attr("src", playlists[getRandomInt(0,9)]);
+    $("#sc").attr("src", playlists[counter%9]);
+    counter++;
     widget1.play();
     joyduration = 0;
     mehduration = 0;
     $('#meh-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
-  if (joyduration >= 3) {
+  if (joyduration >= 55) {
     console.log('user is happy');
     addToPlaylist();
     joyduration = 0;
