@@ -245,39 +245,44 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   </div>
 
   <div class="b sidenav_right w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-    <button onclick="closeRightMenu();onStart();" class="w3-bar-item w3-button w3-large">Close &times;</button>
-    <a>P</a>
-    <a>l</a>
-    <a>a</a>
-    <a>y</a>
-    <a>l</a>
-    <a>i</a>
-    <a>s</a>
-    <a>t</a>
+    <button onclick="closeRightMenu();" class="w3-bar-item w3-button w3-large">Close &times;</button>
   </div>
 
   <!-- Page Content -->
   <div class="w3-teal">
-    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu();onStop();">&#9776;</button>
-    <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu();onStop();">&#9776;</button>
+    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu();">&#9776;</button>
+    <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu();">&#9776;</button>
   </div>
 
   <script>
+  var open = 1;
   function openLeftMenu() {
     widget1.pause();
+    onStop();
     document.getElementById("leftMenu").style.display = "block";
+    open++;
   }
   function closeLeftMenu() {
+    if(open == 1){
     widget1.play();
+    onStart();
+    }
     document.getElementById("leftMenu").style.display = "none";
+    open--;
   }
   function openRightMenu() {
     widget1.pause();
+    onStop();
     document.getElementById("rightMenu").style.display = "block";
+    open++;
   }
   function closeRightMenu() {
+    if(open == 1){
     widget1.play();
+    onStart();
+    }
     document.getElementById("rightMenu").style.display = "none";
+    open--;
   }
 </script>
 
@@ -285,11 +290,11 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
 <div>
   <br><center>Already know you don't like this song? Skip it!: <button onclick="refreshIframe();">Skip</button></center></br>
   <p>
-    <center><iframe id='sc'width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></center>
+    <center><iframe id='sc'width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=true"></iframe></center>
     <center>
     </br>
     <p style="text-align:center;"><img src="cat_party.jpg" width="300" height="300"></p>
-    <br/> Happiness brings up the green happiness meter, while anger brings up the red angery meter.
+    <br/> Happiness brings up the green happiness meter, while anger brings up the red angry meter.
 
   </center>
 </p>

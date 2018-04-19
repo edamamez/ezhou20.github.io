@@ -3,7 +3,7 @@
 }
 
 #sc {
-
+  display: none;
 }
 
 .sr-only {
@@ -11,6 +11,6 @@
 }
 
 .progress {
-  
+
   width: 50%;
 }
