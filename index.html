@@ -242,28 +242,24 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   var open = 1;
   function openLeftMenu() {
     widget1.pause();
-    onStop();
     document.getElementById("leftMenu").style.display = "block";
     open++;
   }
   function closeLeftMenu() {
     if(open == 1){
     widget1.play();
-    onStart();
     }
     document.getElementById("leftMenu").style.display = "none";
     open--;
   }
   function openRightMenu() {
     widget1.pause();
-    onStop();
     document.getElementById("rightMenu").style.display = "block";
     open++;
   }
   function closeRightMenu() {
     if(open == 1){
     widget1.play();
-    onStart();
     }
     document.getElementById("rightMenu").style.display = "none";
     open--;
