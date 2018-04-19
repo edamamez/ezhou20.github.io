@@ -6,7 +6,7 @@ var height = 0;
 var faceMode = affdex.FaceDetectorMode.LARGE_FACES;
 //Construct a CameraDetector and specify the image width / height and face detector mode.
 var detector = new affdex.CameraDetector(divRoot, 0, 0, faceMode);
-
+var joy, joyflag = 0;
 //Enable detection of all Expressions, Emotions and Emojis classifiers.
 detector.detectAllEmotions();
 detector.detectAllEmojis();
@@ -78,10 +78,8 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
   log('#results', "Number of faces found: " + faces.length);
   if (faces.length > 0) {
     // Gets gender, age, facial features
-      var joy = faces[0].emotions.joy;
-      var anger = faces[0].emotions.anger;
+      joy = faces[0].emotions.joy;
       $('#joy-bar').attr('aria-valuenow', joy).css('width', joy+'%');
-      $('#anger-bar').attr('aria-valuenow', anger).css('width', anger+'%');
     log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
       function(key, val) {
         return val.toFixed ? Number(val.toFixed(0)) : val;
@@ -107,6 +105,33 @@ function drawFeaturePoints(img, featurePoints) {
       featurePoints[id].y, 2, 0, 2 * Math.PI);
     contxt.stroke();
 
+  }
+}
+
+var iFrequency = 5000; // expressed in miliseconds
+var myInterval = 0;
+var joyduration = 0, mehduration = 0;
+
+myInterval = window.setInterval( "changePlaylist()", iFrequency );  // run
+
+function changePlaylist() {
+  if (joy < 40) {
+    mehduration++;
+    if (joyduration > 0) joyduration = 0;
+  }
+  if (joy > 40) {
+    joyduration++;
+    if (mehduration > 0) mehduration = 0;
+  }
+  if (mehduration >= 5) {
+    $("#sc").attr("src", "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true");
+    joyduration = 0;
+    mehduration = 0;
+  }
+  if (joyduration >= 5) {
+    console.log('user is happy');
+    joyduration = 0;
+    mehduration = 0;
   }
 }
 
