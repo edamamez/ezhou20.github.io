@@ -114,20 +114,21 @@ var iFrequency = 5000; // expressed in miliseconds
 var myInterval = 0;
 var joyduration = 0, mehduration = 0;
 
-var playlists = ["https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500852178&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500848224&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500847177&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500844384&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500844078&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
-"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"]
+var playlists = ["https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500852178&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500848224&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500847177&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500844384&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500844078&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true",
+"https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"]
 
 myInterval = window.setInterval( "changePlaylist()", iFrequency );  // run
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+var i;
 
 function changePlaylist() {
   if (joy < 40) {
@@ -144,17 +145,29 @@ function changePlaylist() {
   }
   if (mehduration >= 3) {
     console.log('meh');
+
     $("#sc").attr("src", playlists[getRandomInt(0,7)]);
+    widget1.play();
     joyduration = 0;
     mehduration = 0;
     $('#meh-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
   if (joyduration >= 3) {
     console.log('user is happy');
+    addToPlaylist();
     joyduration = 0;
     mehduration = 0;
     $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
+}
+var iframeElement = document.querySelector('iframe');
+var widget1 = SC.Widget(iframeElement);
+var node = document.getElementById("rightMenu");
+function addToPlaylist() {
+  var textnode;
+  widget1.getCurrentSound(function(sound) {
+    $("#rightMenu").append('<p>'+sound.title+'<p>');
+  });
 }
 
 //Mirrors the user

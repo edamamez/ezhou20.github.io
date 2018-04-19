@@ -7,7 +7,7 @@ body {
 }
 
 #sc {
-  display: none;
+  visibility: hidden ;
 }
 
 .sr-only {
