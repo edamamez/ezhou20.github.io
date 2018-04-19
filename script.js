@@ -146,7 +146,7 @@ function changePlaylist() {
   if (mehduration >= 3) {
     console.log('meh');
 
-    $("#sc").attr("src", playlists[getRandomInt(0,7)]);
+    $("#sc").attr("src", playlists[getRandomInt(0,9)]);
     widget1.play();
     joyduration = 0;
     mehduration = 0;
