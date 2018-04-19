@@ -217,7 +217,7 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   </div>
 
   <div class="b sidenav_left w3-sidebar w3-bar-block w3-card w3-animate-left" id="leftMenu">
-    <button onclick="closeLeftMenu();onStart();" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <button onclick="closeLeftMenu();onStart();" class="w3-bar-item w3-button w3-large" id ="closeLeft">Close &times;</button>
     <a><u>Welcome to</a>
     <a>Time to Face the Music!!</a></u>
     <a></a>
@@ -229,7 +229,7 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   </div>
 
   <div class="b sidenav_right w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-    <button onclick="closeRightMenu();" class="w3-bar-item w3-button w3-large">Close &times;</button>
+    <button onclick="closeRightMenu();" class="w3-bar-item w3-button w3-large" id="closeRight">Close &times;</button>
   </div>
 
   <!-- Page Content -->
@@ -270,11 +270,10 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
 <div>
   <br><center>Already know you don't like this song? Skip it!: <button onclick="refreshIframe();">Skip</button></center></br>
   <p>
-    <center><iframe id='sc'width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=true"></iframe></center>
     <center>
     </br>
     <p style="text-align:center;"><img src="cat_party.jpg" width="300" height="300"></p>
-    <br/> Happiness brings up the green happiness meter, while anger brings up the red angry meter.
+    <br/> Happiness brings up the green happiness meter, while no reaction fills the blue boredom meter.
 
   </center>
 </p>
@@ -284,11 +283,11 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
  aria-valuemin="0" aria-valuemax="100" style="width:0%">
 Happiness
  </div>
- <div class="progress-bar progress-bar-success active" id="meh-bar" role="progressbar" aria-valuenow="0"
+ <div class="progress-bar progress-bar-info active" id="meh-bar" role="progressbar" aria-valuenow="0"
  aria-valuemin="0" aria-valuemax="100" style="width:0%">
 Changing Playlist...
  </div>
-
+<center><iframe id='sc'width="50%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500850885&color=%23ff5500&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&show_artwork=true"></iframe></center>
 </div>
 </center>
 </div>
