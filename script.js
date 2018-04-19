@@ -160,7 +160,7 @@ function changePlaylist() {
     mehduration = 0;
     $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
-  counter++:
+  counter++;
 }
 var iframeElement = document.querySelector('iframe');
 var widget1 = SC.Widget(iframeElement);
