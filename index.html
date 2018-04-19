@@ -217,7 +217,7 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   </div>
 
   <div class="b sidenav_left w3-sidebar w3-bar-block w3-card w3-animate-left" id="leftMenu">
-    <button onclick="closeLeftMenu();onStart();" class="w3-bar-item w3-button w3-large" id ="closeLeft">Close &times;</button>
+    <button onclick="closeLeftMenu();" class="w3-bar-item w3-button w3-large" id ="closeLeft">Close &times;</button>
     <a><u>Welcome to</a>
     <a>Time to Face the Music!!</a></u>
     <a></a>
@@ -229,13 +229,13 @@ var SC=SC||{};SC.Widget=function(n){function t(r){if(e[r])return e[r].exports;va
   </div>
 
   <div class="b sidenav_right w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none;right:0;" id="rightMenu">
-    <button onclick="closeRightMenu();onStart();" class="w3-bar-item w3-button w3-large" id="closeRight">Close &times;</button>
+    <button onclick="closeRightMenu();" class="w3-bar-item w3-button w3-large" id="closeRight">Close &times;</button>
   </div>
 
   <!-- Page Content -->
   <div class="w3-teal">
-    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu();onStop();">&#9776;</button>
-    <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu();onStop();">&#9776;</button>
+    <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu();">&#9776;</button>
+    <button class="w3-button w3-teal w3-xlarge w3-right" onclick="openRightMenu();">&#9776;</button>
   </div>
 
   <script>
