@@ -78,12 +78,10 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
   log('#results', "Number of faces found: " + faces.length);
   if (faces.length > 0) {
     // Gets gender, age, facial features
-    log('#results', "Appearance: " + JSON.stringify(faces[0].appearance));
-
-    log('#results', "Emotions: " + JSON.stringify(faces[0].emotions,
-      function(key, val) {
-        return val.toFixed ? Number(val.toFixed(0)) : val;
-      }));
+      var joy = faces[0].emotions.joy;
+      var anger = faces[0].emotions.anger;
+      $('#joy-bar').attr('aria-valuenow', joy).css('width', joy+'%');
+      $('#anger-bar').attr('aria-valuenow', anger).css('width', anger+'%');
     log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
       function(key, val) {
         return val.toFixed ? Number(val.toFixed(0)) : val;
@@ -91,7 +89,6 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
 
     // Return an emoji of face
     log('#results', "Emoji: " + faces[0].emojis.dominantEmoji);
-    drawFeaturePoints(image, faces[0].featurePoints);
   }
 });
 

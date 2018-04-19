@@ -3,5 +3,14 @@
 }
 
 #sc {
-  display: none;
+
+}
+
+.sr-only {
+  display:block;
+}
+
+.progress {
+  
+  width: 50%;
 }
