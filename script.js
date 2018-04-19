@@ -79,6 +79,8 @@ detector.addEventListener("onImageResultsSuccess", function(faces, image,
   if (faces.length > 0) {
     // Gets gender, age, facial features
       joy = faces[0].emotions.joy;
+      console.log(joyduration);
+      console.log(megduration);
       $('#joy-bar').attr('aria-valuenow', joy).css('width', joy+'%');
     log('#results', "Expressions: " + JSON.stringify(faces[0].expressions,
       function(key, val) {
@@ -123,12 +125,13 @@ function changePlaylist() {
     joyduration++;
     if (mehduration > 0) mehduration = 0;
   }
-  if (mehduration >= 5) {
+  if (mehduration >= 3) {
+    console.log('meh');
     $("#sc").attr("src", "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/500842647&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true");
     joyduration = 0;
     mehduration = 0;
   }
-  if (joyduration >= 5) {
+  if (joyduration >= 3) {
     console.log('user is happy');
     joyduration = 0;
     mehduration = 0;
