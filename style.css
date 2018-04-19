@@ -1,3 +1,7 @@
+body {
+  background-color: #F9DEC9;
+}
+
 .container {
   display: none;
 }
@@ -13,4 +17,32 @@
 .progress {
   
   width: 50%;
+}
+
+.sidetab_left {
+  color: #3A405A;
+}
+
+.sidetab_right {
+  color: #3A405A;
+}
+
+#leftMenu {
+  color: #3A405A;
+}
+
+#rightMenu {
+  color: #3A405A;
+}
+
+#closeLeft {
+  background-color: #99B2DD;
+}
+
+#closeRight {
+  background-color: #99B2DD;
+}
+
+.sidenav_left a:hover {
+  color: #818181;
 }
