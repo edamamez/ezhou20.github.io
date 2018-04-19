@@ -110,7 +110,7 @@ function drawFeaturePoints(img, featurePoints) {
   }
 }
 
-var iFrequency = 100; // expressed in miliseconds
+var iFrequency = 200; // expressed in miliseconds
 var myInterval = 0;
 var joyduration = 0, mehduration = 0;
 var counter = 1;
@@ -130,21 +130,22 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 var i;
+var colortheme = ['#3A405A', '#E49AB0', '#F9DEC9', '#99B2DD', '#685044'];
 
 function changePlaylist() {
   if (joy < 30) {
     mehduration++;
     if (joyduration > 0) joyduration = 0;
-    $('#joy-bar').attr('aria-valuenow', joyduration*2).css('width', (joyduration*2)+'%');
-    $('#meh-bar').attr('aria-valuenow', mehduration).css('width', (mehduration)+'%');
+    $('#joy-bar').attr('aria-valuenow', joyduration*4).css('width', (joyduration*4)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration*2).css('width', (mehduration*2)+'%');
   }
   if (joy > 30) {
     joyduration++;
     if (mehduration > 0) mehduration = 0;
-    $('#joy-bar').attr('aria-valuenow', joyduration*2).css('width', (joyduration*2)+'%');
-    $('#meh-bar').attr('aria-valuenow', mehduration).css('width', (mehduration)+'%');
+    $('#joy-bar').attr('aria-valuenow', joyduration*4).css('width', (joyduration*4)+'%');
+    $('#meh-bar').attr('aria-valuenow', mehduration*2).css('width', (mehduration*2)+'%');
   }
-  if (mehduration >= 110) {
+  if (mehduration >= 55) {
     console.log('meh');
     $("#sc").attr("src", playlists[counter%9]);
     counter++;
@@ -152,13 +153,15 @@ function changePlaylist() {
     joyduration = 0;
     mehduration = 0;
     $('#meh-bar').attr('aria-valuenow', 100).css('width', 100+'%');
-  }
-  if (joyduration >= 55) {
+    $('#world').css('background', 'linear-gradient(to bottom right,' + colortheme[Math.floor(Math.random() * colortheme.length)] + ', ' + colortheme[Math.floor(Math.random() * colortheme.length)] + ')');
+    }
+  if (joyduration >= 28) {
     console.log('user is happy');
     addToPlaylist();
     joyduration = 0;
     mehduration = 0;
     $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
+    $('#world').css('background', 'linear-gradient(to bottom right, #c0ffee, #76cd45)');
   }
 }
 var iframeElement = document.querySelector('iframe');
