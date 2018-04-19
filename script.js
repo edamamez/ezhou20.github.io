@@ -10,6 +10,7 @@ var joy, joyflag = 0;
 //Enable detection of all Expressions, Emotions and Emojis classifiers.
 detector.detectAllEmotions();
 detector.detectAllEmojis();
+detector.start();
 
 //Add a callback to notify when the detector is initialized and ready for runing.
 detector.addEventListener("onInitializeSuccess", function() {
