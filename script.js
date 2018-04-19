@@ -145,11 +145,13 @@ function changePlaylist() {
     $("#sc").attr("src", playlists[getRandomInt(0,7)]);
     joyduration = 0;
     mehduration = 0;
+    $('#meh-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
   if (joyduration >= 3) {
     console.log('user is happy');
     joyduration = 0;
     mehduration = 0;
+    $('#joy-bar').attr('aria-valuenow', 100).css('width', 100+'%');
   }
 }
 
